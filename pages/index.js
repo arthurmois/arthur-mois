@@ -1,10 +1,10 @@
 import { Page, Text, Display } from "@geist-ui/core";
-import { Image, Tabs, Divider, Grid, Card } from "@geist-ui/core";
-import MapChart from "./mapchart";
+import { Image, Tabs, Divider, Grid, Card, Link, Spacer } from "@geist-ui/core";
+import MapChart from "../projects/mapchart";
 
 export default function Home() {
   return (
-    <div style={{marginLeft: "10%", marginRight: "10%"}}>
+    <div style={{ marginLeft: "10%", marginRight: "10%" }}>
       <Page>
         <Page.Header>
           <br></br>
@@ -80,8 +80,8 @@ export default function Home() {
                 someday work with.
                 <br></br>
                 <br></br>
-                I&apos;ve had the pleasure of working with modern technologies such
-                as
+                I&apos;ve had the pleasure of working with modern technologies
+                such as
                 <Text b>
                   {" "}
                   React, Node, PostgreSQL, Next.JS, Three.JS, Spline,
@@ -103,30 +103,33 @@ export default function Home() {
           <br></br>
           <br></br>
 
-          <Text h3 align='center'>Projects</Text>
+          <Text h3 align="center">
+            Projects
+          </Text>
           <Tabs initialValue="1" align="center">
             <Tabs.Item label="ISS on Earth" value="1">
-              <Text h3>
-                Where is the International Space Station?
-              </Text>
+              <Text h3>Where is the International Space Station?</Text>
               <br></br>
               <Grid.Container gap={6} justify="left">
                 <Grid xs={8}>
                   <Text>
                     Ever wondered:
-                    <Text b> &quot;Since the ISS orbits Earth, what is its terrestrial
+                    <Text b>
+                      {" "}
+                      &quot;Since the ISS orbits Earth, what is its terrestrial
                       position?&quot;
                     </Text>
                     . Well, probably not, but here it is anyway!
                     <br></br>
                     <br></br>
-                    This app was created with <Text b>React</Text> and an API call to get a
-                    JSON object containing the lattitude and longitude of the
-                    ISS. The blue dot is being updated using a useState hook that
-                    gets the position every 3 seconds.
+                    This app was created with <Text b>React</Text> and an API
+                    call to get a JSON object containing the lattitude and
+                    longitude of the ISS. The blue dot is being updated using a
+                    useState hook that gets the position every 3 seconds.
                     <br></br>
                     <br></br>
-                    Feel free to zoom in/out and move the map around :)
+                    Feel free to zoom in/out and move the map around (the ISS
+                    might be at the edge of the map)
                   </Text>
                 </Grid>
                 <Grid xs={16}>
@@ -144,13 +147,53 @@ export default function Home() {
                 </Grid>
               </Grid.Container>
             </Tabs.Item>
-            <Tabs.Item label="FaceBook Marketplace Replica" value="2">
-              Between the Web browser and the server, numerous computers and
-              machines relay the HTTP messages.
+            <Tabs.Item label="Facebook Marketplace Replica" value="2">
+              <Text h3>Facebook Marketplace Replica</Text>
+              <br></br>
+              <Grid.Container justify="left">
+                <Grid xs={8}>
+                  <Text>
+                    In a team of 3, we created a
+                    <Text b> Full Stack Web Application </Text>
+                    modeled after Facebook's Marketplace. I&apos;ve included a
+                    link to a youtube demonstration as opposed to a working demo
+                    since the proprietary web app is owned by the University of
+                    California.
+                    <br></br>
+                    <Link
+                      href="https://www.youtube.com/watch?v=yLhv-AQdZHA"
+                      icon
+                      color
+                    >
+                      Facebook Marketplace Replica Demo
+                    </Link>
+                    <br></br>
+                    <br></br>
+                    This app was created with{" "}
+                    <Text b>React, Node, Express, and PostgreSQL.</Text>
+                    It employs the use of REST APIs, JWT for authentication, and
+                    provides full usability throughout the stack including:
+                    <ul>
+                      <li>Create Account</li>
+                      <li>Create Listing</li>
+                      <li>View and Search Listings</li>
+                      <li>Reply to Listing</li>
+                      <li>Sort/Filter Functionality</li>
+                    </ul>
+                  </Text>
+                </Grid>
+                <Grid xs={16}>
+                  <Display shadow>
+                    <Image height="200px" src="/fbreplica.png" />
+                  </Display>
+                </Grid>
+              </Grid.Container>
             </Tabs.Item>
             <Tabs.Item label="Model Solar System" value="3">
-              Between the Web browser and the server, numerous computers and
-              machines relay the HTTP messages.
+              <script src="planet.js"></script>
+              <script src="three.js"></script>
+              <script src="orbitcontrols.js"></script>
+              <script src="index.js"></script>
             </Tabs.Item>
             <Tabs.Item label="Target Practice" value="4">
               Between the Web browser and the server, numerous computers and
