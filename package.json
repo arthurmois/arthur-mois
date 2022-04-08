@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@geist-ui/core": "^2.3.8",
+    "@geist-ui/react": "^2.2.5",
     "next": "12.1.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "react-simple-maps": "^2.3.0"
   },
   "devDependencies": {
     "eslint": "8.12.0",
