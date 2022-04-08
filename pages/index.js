@@ -35,12 +35,12 @@ export default function Home() {
             Arthur Mois
           </Text>
           <Text h3 center>
-            I'm a Software Engineer seeking opportunities.
+            I&apos;m a Software Engineer seeking opportunities.
             <br></br>
             Eager to get my hands dirty...
           </Text>
           <Text h6 center>
-            you know, 'cuz germs on keyboards and all.
+            you know, &apos;cuz germs on keyboards and all.
           </Text>
           {/* <Display shadow>
             <Image height="200px" src="/profile.jpg" />
@@ -72,7 +72,7 @@ export default function Home() {
               <Text>
                 <br></br>
                 Hello! My name is Arthur, I am an aspiring engineer and
-                innovator. I'm interested in
+                innovator. I&apos;m interested in
                 <Text b> Web Applications</Text> development as well as{" "}
                 <Text b> Computer Graphics</Text> and Computer Vision. I also
                 have an immense fascination with Aerospace and Astronomy as well
@@ -80,7 +80,7 @@ export default function Home() {
                 someday work with.
                 <br></br>
                 <br></br>
-                I've had the pleasure of working with modern technologies such
+                I&apos;ve had the pleasure of working with modern technologies such
                 as
                 <Text b>
                   {" "}
@@ -114,8 +114,8 @@ export default function Home() {
                 <Grid xs={8}>
                   <Text>
                     Ever wondered:
-                    <Text b> "Since the ISS orbits Earth, what is its terrestrial
-                      position?"
+                    <Text b> &quot;Since the ISS orbits Earth, what is its terrestrial
+                      position?&quot;
                     </Text>
                     . Well, probably not, but here it is anyway!
                     <br></br>
