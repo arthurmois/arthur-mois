@@ -134,6 +134,7 @@ export default function Home() {
                     style={{
                       minWidth: "100%",
                       borderStyle: "solid",
+                      borderRadius: "25px",
                       alignItems: "center",
                       justifyContent: "center",
                     }}
