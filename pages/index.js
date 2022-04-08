@@ -4,7 +4,7 @@ import MapChart from "./mapchart";
 
 export default function Home() {
   return (
-    <div>
+    <div style={{marginLeft: "10%", marginRight: "10%"}}>
       <Page>
         <Page.Header>
           <br></br>
@@ -103,7 +103,7 @@ export default function Home() {
           <br></br>
           <br></br>
 
-          <Text h3>Projects</Text>
+          <Text h3 align='center'>Projects</Text>
           <Tabs initialValue="1" align="center">
             <Tabs.Item label="ISS on Earth" value="1">
               <Text h3>
@@ -157,6 +157,11 @@ export default function Home() {
             </Tabs.Item>
           </Tabs>
         </Page.Content>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <Page.Footer>Arthur Mois</Page.Footer>
       </Page>
     </div>
