@@ -182,7 +182,7 @@ export default function Home() {
                   <Text>
                     In a team of 3, we created a
                     <Text b> Full Stack Web Application </Text>
-                    modeled after Facebook's Marketplace. I&apos;ve included a
+                    modeled after Facebook&apos;s Marketplace. I&apos;ve included a
                     link to a youtube demonstration as opposed to a working demo
                     since the proprietary web app is owned by the University of
                     California.
@@ -250,7 +250,7 @@ export default function Home() {
                   <Text>
                     My professor in my Computer Graphics class, hosted a
                     competition halfway through the semester. Using the
-                    technologies we've already learned, all contestants were to
+                    technologies we&apos;ve already learned, all contestants were to
                     create some 3D scene within the span of 24 hours.
                     <br></br>
                     <br></br>
