@@ -1,5 +1,6 @@
 import { Page, Text, Display } from "@geist-ui/core";
 import { useRouter } from 'next/router'
+import Head from 'next/head' 
 import {
   Image,
   Tabs,
@@ -17,6 +18,10 @@ export default function Home() {
   const router = useRouter()
   return (
     <div style={{ marginLeft: "10%", marginRight: "10%" }}>
+      <Head>
+        <title>Arthur Mois</title>
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <Page>
         <Page.Header>
           <br></br>
