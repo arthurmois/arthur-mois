@@ -1,14 +1,41 @@
 import { Page, Text, Display } from "@geist-ui/core";
-import { Image, Tabs, Divider, Grid, Card, Link, Spacer } from "@geist-ui/core";
+import { useRouter } from 'next/router'
+import {
+  Image,
+  Tabs,
+  Divider,
+  Grid,
+  Card,
+  Link,
+  Spacer,
+  Code,
+} from "@geist-ui/core";
 import MapChart from "../projects/mapchart";
+import { Linkedin, Mail, Phone } from "@geist-ui/icons";
 
 export default function Home() {
+  const router = useRouter()
   return (
     <div style={{ marginLeft: "10%", marginRight: "10%" }}>
       <Page>
         <Page.Header>
           <br></br>
           <Tabs
+            onChange={(val) => {
+              switch (val) {
+                case "1":
+                  router.push("#about")
+                  break;
+                case "2":
+                  router.push("#projects")
+                  break;
+                case "4":
+                  router.push("#contact")
+                  break;
+                default:
+                console.log(val);
+              }
+            }}
             align="right"
             hideBorder
             hideDivider
@@ -58,7 +85,7 @@ export default function Home() {
           <br></br>
           <br></br>
           <br></br>
-          <br></br>
+          <br id="about"></br>
           <br></br>
           <br></br>
           <br></br>
@@ -99,7 +126,7 @@ export default function Home() {
           <br></br>
           <br></br>
           <br></br>
-          <br></br>
+          <br id="projects"></br>
           <br></br>
           <br></br>
 
@@ -190,23 +217,98 @@ export default function Home() {
               </Grid.Container>
             </Tabs.Item>
             <Tabs.Item label="Model Solar System" value="3">
-              <script src="planet.js"></script>
-              <script src="three.js"></script>
-              <script src="orbitcontrols.js"></script>
-              <script src="index.js"></script>
+              <Text h3>Model Solar System</Text>
+
+              <Text>
+                Give it a sec to load, its a hefty program.
+                <br></br>
+                Use your scroll wheel :)
+              </Text>
+              <iframe
+                src="https://arthurmois.github.io/our-cosmos/"
+                style={{ minWidth: "100%", minHeight: "400px" }}
+              ></iframe>
+              <Text style={{ maxWidth: "50%" }}>
+                I created this geo-centric model of our solar system using
+                <Text b> Three.JS</Text>, a powerful graphics library. All
+                objects in the scenes are rendered with actual data from NASA.
+                The model is scaled at 1:10^-4.2.
+                <br></br>
+                <br></br>
+                Using the mouse buttons you may translate and rotate the camera
+                as if you were an astronaut in space with a video camera. Feel
+                free to hop around from planet to planet with the navigation
+                buttons.
+              </Text>
             </Tabs.Item>
-            <Tabs.Item label="Target Practice" value="4">
-              Between the Web browser and the server, numerous computers and
-              machines relay the HTTP messages.
+            <Tabs.Item
+              label="Target Practice (1st Place Award Winner)"
+              value="4"
+            >
+              <Grid.Container gap={4}>
+                <Grid xs={8}>
+                  <Text>
+                    My professor in my Computer Graphics class, hosted a
+                    competition halfway through the semester. Using the
+                    technologies we've already learned, all contestants were to
+                    create some 3D scene within the span of 24 hours.
+                    <br></br>
+                    <br></br>
+                    In order to blow my competitors out of the water, I knew I
+                    had to be different, so in the time frame, I also built a
+                    physics engine on top of my 3D scene and built this FPS aim
+                    training game. Using Linear Algebra and some Physics, I was
+                    able to build a fairly accurate game using WebGL and some
+                    keyboard/mouse input libraries. I won 1st place in all
+                    cateogries, gathering over 70% of all votes.
+                    <br></br>
+                    <br></br>
+                    To enter the environment just click on the scene, and to
+                    exit hit <Code>ESC</Code>. You may use WASD and the mouse to
+                    walk around and shoot the training targets.
+                  </Text>
+                </Grid>
+                <Grid xs={16}>
+                  <iframe
+                    src="https://arthurmois.github.io/target-practice/"
+                    style={{ minWidth: "100%", minHeight: "600px" }}
+                  ></iframe>
+                </Grid>
+              </Grid.Container>
             </Tabs.Item>
           </Tabs>
+          <br></br>
+          <br id="contact"></br>
+          <br></br>
+          <br></br>
+          <br></br>
+
+          <Divider>
+            <Text h3>Contact</Text>
+          </Divider>
+          <Text>
+            <Mail></Mail>{" "}
+            <Link href="mailto:arthurmois@gmail.com" color>
+              arthurmois@gmail.com
+            </Link>
+            <br></br>
+            <Phone></Phone> +19164778861
+            <br></br>
+            <Linkedin></Linkedin>{" "}
+            <Link href="https://www.linkedin.com/in/arthurmois/" color>
+              Arthur Mois
+            </Link>
+            <br></br>
+          </Text>
         </Page.Content>
         <br></br>
         <br></br>
         <br></br>
         <br></br>
         <br></br>
-        <Page.Footer>Arthur Mois</Page.Footer>
+        <Page.Footer align="center">
+          Dreams are messages from the Deep
+        </Page.Footer>
       </Page>
     </div>
   );

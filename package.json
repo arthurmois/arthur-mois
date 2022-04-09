@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@geist-ui/core": "^2.3.8",
+    "@geist-ui/icons": "^1.0.1",
     "@geist-ui/react": "^2.2.5",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "react-simple-maps": "^2.3.0"
+    "react-router-dom": "^6.3.0",
+    "react-simple-maps": "^2.3.0",
+    "three.js": "^0.77.1"
   },
   "devDependencies": {
     "eslint": "8.12.0",
