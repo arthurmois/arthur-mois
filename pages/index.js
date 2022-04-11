@@ -336,7 +336,7 @@ export default function Home() {
         <br></br>
         <br></br>
         <Page.Footer align="center">
-          Dreams are messages from the Deep
+          Arthur Mois
         </Page.Footer>
       </Page>
     </div>
