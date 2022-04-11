@@ -1,6 +1,7 @@
-import { Page, Text, Display } from "@geist-ui/core";
-import { useRouter } from 'next/router'
-import Head from 'next/head' 
+import { Page, Text, Display, useMediaQuery } from "@geist-ui/core";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import Head from "next/head";
 import {
   Image,
   Tabs,
@@ -10,14 +11,18 @@ import {
   Link,
   Spacer,
   Code,
+  Drawer,
+  Button
 } from "@geist-ui/core";
 import MapChart from "../projects/mapchart";
 import { Linkedin, Mail, Phone } from "@geist-ui/icons";
 
 export default function Home() {
-  const router = useRouter()
+  const isMobile = useMediaQuery("xs");
+  const router = useRouter();
+  const [open, setOpen] = useState(false);
   return (
-    <div style={{ marginLeft: "10%", marginRight: "10%" }}>
+    <div style={isMobile ? { marginLeft: "0px", marginRight: "10px" } : { marginLeft: "10%", marginRight: "10%" }}>
       <Head>
         <title>Arthur Mois</title>
         <link rel="icon" href="/favicon.png" />
@@ -25,33 +30,52 @@ export default function Home() {
       <Page>
         <Page.Header>
           <br></br>
-          <Tabs
-            onChange={(val) => {
-              switch (val) {
-                case "1":
-                  router.push("#about")
-                  break;
-                case "2":
-                  router.push("#projects")
-                  break;
-                case "4":
-                  router.push("#contact")
-                  break;
-                default:
-                console.log(val);
-              }
-            }}
-            align="right"
-            hideBorder
-            hideDivider
-            initialValue="1"
-            activeStyles={{ color: "yellow" }}
-          >
-            <Tabs.Item label="About" value="1"></Tabs.Item>
-            <Tabs.Item label="Projects" value="2"></Tabs.Item>
-            <Tabs.Item label="Experience" value="3"></Tabs.Item>
-            <Tabs.Item label="Contact" value="4"></Tabs.Item>
-          </Tabs>
+          {isMobile ? (
+            <>
+              <Button auto onClick={() => setOpen(true)} scale={1 / 2}>
+                Show Drawer
+              </Button>
+              <Drawer
+                visible={open}
+                onClose={() => setOpen(false)}
+                placement="right"
+              >
+                <Drawer.Title>Drawer</Drawer.Title>
+                <Drawer.Subtitle>This is a drawer</Drawer.Subtitle>
+                <Drawer.Content>
+                  <p>Some content contained within the drawer.</p>
+                </Drawer.Content>
+              </Drawer>
+            </>
+          ) : (
+            <Tabs
+              onChange={(val) => {
+                switch (val) {
+                  case "1":
+                    router.push("#about");
+                    break;
+                  case "2":
+                    router.push("#projects");
+                    break;
+                  case "4":
+                    router.push("#contact");
+                    break;
+                  default:
+                    console.log(val);
+                }
+              }}
+              align="right"
+              hideBorder
+              hideDivider
+              initialValue="1"
+              activeStyles={{ color: "yellow" }}
+            >
+              <Tabs.Item label="About" value="1"></Tabs.Item>
+              <Tabs.Item label="Projects" value="2"></Tabs.Item>
+              <Tabs.Item label="Experience" value="3"></Tabs.Item>
+              <Tabs.Item label="Contact" value="4"></Tabs.Item>
+            </Tabs>
+          )}
         </Page.Header>
         <Page.Content>
           <br></br>
@@ -154,7 +178,7 @@ export default function Home() {
                     . Well, probably not, but here it is anyway!
                     <br></br>
                     <br></br>
-                    This app was created with <Text b>React</Text> and an API
+                    I created this app with <Text b>React</Text> and an API
                     call to get a JSON object containing the lattitude and
                     longitude of the ISS. The blue dot is being updated using a
                     useState hook that gets the position every 3 seconds.
@@ -187,10 +211,10 @@ export default function Home() {
                   <Text>
                     In a team of 3, we created a
                     <Text b> Full Stack Web Application </Text>
-                    modeled after Facebook&apos;s Marketplace. I&apos;ve included a
-                    link to a youtube demonstration as opposed to a working demo
-                    since the proprietary web app is owned by the University of
-                    California.
+                    modeled after Facebook&apos;s Marketplace. I&apos;ve
+                    included a link to a youtube demonstration as opposed to a
+                    working demo since the proprietary web app is owned by the
+                    University of California.
                     <br></br>
                     <Link
                       href="https://www.youtube.com/watch?v=yLhv-AQdZHA"
@@ -255,8 +279,8 @@ export default function Home() {
                   <Text>
                     My professor in my Computer Graphics class, hosted a
                     competition halfway through the semester. Using the
-                    technologies we&apos;ve already learned, all contestants were to
-                    create some 3D scene within the span of 24 hours.
+                    technologies we&apos;ve already learned, all contestants
+                    were to create some 3D scene within the span of 24 hours.
                     <br></br>
                     <br></br>
                     In order to blow my competitors out of the water, I knew I
