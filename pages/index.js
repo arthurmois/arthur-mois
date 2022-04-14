@@ -51,22 +51,34 @@ export default function Home() {
               >
                 <Drawer.Title>Arthur Mois</Drawer.Title>
                 <Drawer.Content>
-                  <Button onClick={() => {
-                    setOpen(false);
-                    router.push("#about");
-                  }}>About</Button>
+                  <Button
+                    onClick={() => {
+                      setOpen(false);
+                      router.push("#about");
+                    }}
+                  >
+                    About
+                  </Button>
                   <br></br>
                   <br></br>
-                  <Button onClick={() => {
-                    setOpen(false);
-                    router.push("#projects");
-                  }}>Projects</Button>
+                  <Button
+                    onClick={() => {
+                      setOpen(false);
+                      router.push("#projects");
+                    }}
+                  >
+                    Projects
+                  </Button>
                   <br></br>
                   <br></br>
-                  <Button onClick={() => {
-                    setOpen(false);
-                    router.push("#contact");
-                  }}>Contact</Button>
+                  <Button
+                    onClick={() => {
+                      setOpen(false);
+                      router.push("#contact");
+                    }}
+                  >
+                    Contact
+                  </Button>
                 </Drawer.Content>
               </Drawer>
             </>
@@ -141,11 +153,9 @@ export default function Home() {
           <br></br>
           <br></br>
           <br></br>
-
           <Divider align="start" style={{ maxWidth: "75%" }}>
             <Text h3>About</Text>
           </Divider>
-
           <Grid.Container justify="left">
             <Grid xs={isMobile ? 24 : 12}>
               <Text>
@@ -174,18 +184,15 @@ export default function Home() {
               </Display>
             </Grid>
           </Grid.Container>
-
           <br></br>
           <br></br>
           <br></br>
           <br id="projects"></br>
           <br></br>
           <br></br>
-
           <Text h3 align="center">
             Projects
           </Text>
-
           {isMobile ? (
             <Collapse.Group>
               <Collapse title="ISS On Earth">
@@ -299,6 +306,8 @@ export default function Home() {
                 <Grid.Container gap={4}>
                   <Grid xs={isMobile ? 24 : 8}>
                     <Text>
+                      <h5>Note: only works on desktop</h5>
+                      <br></br>
                       My professor in my Computer Graphics class, hosted a
                       competition halfway through the semester. Using the
                       technologies we&apos;ve already learned, all contestants
@@ -448,6 +457,8 @@ export default function Home() {
                 <Grid.Container gap={4}>
                   <Grid xs={isMobile ? 24 : 8}>
                     <Text>
+                      <h5>Note: only works on desktop</h5>
+                      <br></br>
                       My professor in my Computer Graphics class, hosted a
                       competition halfway through the semester. Using the
                       technologies we&apos;ve already learned, all contestants
@@ -483,24 +494,29 @@ export default function Home() {
           <br></br>
           <br></br>
           <br></br>
-
           <Divider>
             <Text h3>Contact</Text>
           </Divider>
           <br></br>
-            <Mail></Mail>{" "}
-            <Link href="mailto:arthurmois@gmail.com" color>
-              arthurmois@gmail.com
-            </Link>
-            <br></br>
-            <Phone></Phone>{" "}
-            <Link href="tel:19164778861" color>(916) 477-8861</Link>
-            <br></br>
-            <Linkedin></Linkedin>{" "}
-            <Link href="https://www.linkedin.com/in/arthurmois/" target="_blank" color>
-              Arthur Mois
-            </Link>
-            <br></br>
+          <Mail></Mail>{" "}
+          <Link href="mailto:arthurmois@gmail.com" color>
+            arthurmois@gmail.com
+          </Link>
+          <br></br>
+          <Phone></Phone>{" "}
+          <Link href="tel:19164778861" color>
+            (916) 477-8861
+          </Link>
+          <br></br>
+          <Linkedin></Linkedin>{" "}
+          <Link
+            href="https://www.linkedin.com/in/arthurmois/"
+            target="_blank"
+            color
+          >
+            Arthur Mois
+          </Link>
+          <br></br>
         </Page.Content>
         <br></br>
         <br></br>
