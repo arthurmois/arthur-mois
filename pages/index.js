@@ -243,6 +243,7 @@ export default function Home() {
                         href="https://www.youtube.com/watch?v=yLhv-AQdZHA"
                         icon
                         color
+                        target="_blank"
                       >
                         Facebook Marketplace Replica Demo
                       </Link>
@@ -384,6 +385,7 @@ export default function Home() {
                       <br></br>
                       <Link
                         href="https://www.youtube.com/watch?v=yLhv-AQdZHA"
+                        target="_blank"
                         icon
                         color
                       >
@@ -495,7 +497,7 @@ export default function Home() {
             <Link href="tel:19164778861" color>(916) 477-8861</Link>
             <br></br>
             <Linkedin></Linkedin>{" "}
-            <Link href="https://www.linkedin.com/in/arthurmois/" color>
+            <Link href="https://www.linkedin.com/in/arthurmois/" target="_blank" color>
               Arthur Mois
             </Link>
             <br></br>
