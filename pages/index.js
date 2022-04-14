@@ -12,38 +12,61 @@ import {
   Spacer,
   Code,
   Drawer,
-  Button
+  Button,
+  Collapse,
 } from "@geist-ui/core";
 import MapChart from "../projects/mapchart";
-import { Linkedin, Mail, Phone } from "@geist-ui/icons";
+import { Linkedin, Mail, Phone, Menu } from "@geist-ui/icons";
 
 export default function Home() {
   const isMobile = useMediaQuery("xs");
   const router = useRouter();
   const [open, setOpen] = useState(false);
   return (
-    <div style={isMobile ? { marginLeft: "0px", marginRight: "10px" } : { marginLeft: "10%", marginRight: "10%" }}>
+    <div
+      style={
+        isMobile
+          ? { marginLeft: "0px", marginRight: "10px" }
+          : { marginLeft: "0px", marginRight: "0px" }
+      }
+    >
       <Head>
         <title>Arthur Mois</title>
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <Page>
+      <Page width={isMobile ? "100%" : undefined}>
         <Page.Header>
           <br></br>
           {isMobile ? (
             <>
-              <Button auto onClick={() => setOpen(true)} scale={1 / 2}>
-                Show Drawer
-              </Button>
+              <div style={{ float: "right" }}>
+                <Menu size={36} onClick={() => setOpen(true)} scale={1 / 2}>
+                  Show Drawer
+                </Menu>
+              </div>
               <Drawer
                 visible={open}
                 onClose={() => setOpen(false)}
                 placement="right"
               >
-                <Drawer.Title>Drawer</Drawer.Title>
-                <Drawer.Subtitle>This is a drawer</Drawer.Subtitle>
+                <Drawer.Title>Arthur Mois</Drawer.Title>
                 <Drawer.Content>
-                  <p>Some content contained within the drawer.</p>
+                  <Button onClick={() => {
+                    setOpen(false);
+                    router.push("#about");
+                  }}>About</Button>
+                  <br></br>
+                  <br></br>
+                  <Button onClick={() => {
+                    setOpen(false);
+                    router.push("#projects");
+                  }}>Projects</Button>
+                  <br></br>
+                  <br></br>
+                  <Button onClick={() => {
+                    setOpen(false);
+                    router.push("#contact");
+                  }}>Contact</Button>
                 </Drawer.Content>
               </Drawer>
             </>
@@ -72,7 +95,7 @@ export default function Home() {
             >
               <Tabs.Item label="About" value="1"></Tabs.Item>
               <Tabs.Item label="Projects" value="2"></Tabs.Item>
-              <Tabs.Item label="Experience" value="3"></Tabs.Item>
+              {/* <Tabs.Item label="Experience" value="3"></Tabs.Item> */}
               <Tabs.Item label="Contact" value="4"></Tabs.Item>
             </Tabs>
           )}
@@ -90,12 +113,12 @@ export default function Home() {
           <Text h1 center>
             Arthur Mois
           </Text>
-          <Text h3 center>
+          <Text h3 center style={{ color: "grey" }}>
             I&apos;m a Software Engineer seeking opportunities.
             <br></br>
             Eager to get my hands dirty...
           </Text>
-          <Text h6 center>
+          <Text h6 center style={{ color: "grey" }}>
             you know, &apos;cuz germs on keyboards and all.
           </Text>
           {/* <Display shadow>
@@ -124,7 +147,7 @@ export default function Home() {
           </Divider>
 
           <Grid.Container justify="left">
-            <Grid xs={12}>
+            <Grid xs={isMobile ? 24 : 12}>
               <Text>
                 <br></br>
                 Hello! My name is Arthur, I am an aspiring engineer and
@@ -145,7 +168,7 @@ export default function Home() {
                 and many more.
               </Text>
             </Grid>
-            <Grid xs={12}>
+            <Grid xs={isMobile ? 24 : 12}>
               <Display shadow>
                 <Image height="200px" src="/profile.jpg" />
               </Display>
@@ -162,150 +185,297 @@ export default function Home() {
           <Text h3 align="center">
             Projects
           </Text>
-          <Tabs initialValue="1" align="center">
-            <Tabs.Item label="ISS on Earth" value="1">
-              <Text h3>Where is the International Space Station?</Text>
-              <br></br>
-              <Grid.Container gap={6} justify="left">
-                <Grid xs={8}>
-                  <Text>
-                    Ever wondered:
-                    <Text b>
-                      {" "}
-                      &quot;Since the ISS orbits Earth, what is its terrestrial
-                      position?&quot;
-                    </Text>
-                    . Well, probably not, but here it is anyway!
-                    <br></br>
-                    <br></br>
-                    I created this app with <Text b>React</Text> and an API
-                    call to get a JSON object containing the lattitude and
-                    longitude of the ISS. The blue dot is being updated using a
-                    useState hook that gets the position every 3 seconds.
-                    <br></br>
-                    <br></br>
-                    Feel free to zoom in/out and move the map around (the ISS
-                    might be at the edge of the map)
-                  </Text>
-                </Grid>
-                <Grid xs={16}>
-                  <div
-                    style={{
-                      minWidth: "100%",
-                      borderStyle: "solid",
-                      borderRadius: "25px",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <MapChart />
-                  </div>
-                </Grid>
-              </Grid.Container>
-            </Tabs.Item>
-            <Tabs.Item label="Facebook Marketplace Replica" value="2">
-              <Text h3>Facebook Marketplace Replica</Text>
-              <br></br>
-              <Grid.Container justify="left">
-                <Grid xs={8}>
-                  <Text>
-                    In a team of 3, we created a
-                    <Text b> Full Stack Web Application </Text>
-                    modeled after Facebook&apos;s Marketplace. I&apos;ve
-                    included a link to a youtube demonstration as opposed to a
-                    working demo since the proprietary web app is owned by the
-                    University of California.
-                    <br></br>
-                    <Link
-                      href="https://www.youtube.com/watch?v=yLhv-AQdZHA"
-                      icon
-                      color
-                    >
-                      Facebook Marketplace Replica Demo
-                    </Link>
-                    <br></br>
-                    <br></br>
-                    This app was created with{" "}
-                    <Text b>React, Node, Express, and PostgreSQL.</Text>
-                    It employs the use of REST APIs, JWT for authentication, and
-                    provides full usability throughout the stack including:
-                    <ul>
-                      <li>Create Account</li>
-                      <li>Create Listing</li>
-                      <li>View and Search Listings</li>
-                      <li>Reply to Listing</li>
-                      <li>Sort/Filter Functionality</li>
-                    </ul>
-                  </Text>
-                </Grid>
-                <Grid xs={16}>
-                  <Display shadow>
-                    <Image height="200px" src="/fbreplica.png" />
-                  </Display>
-                </Grid>
-              </Grid.Container>
-            </Tabs.Item>
-            <Tabs.Item label="Model Solar System" value="3">
-              <Text h3>Model Solar System</Text>
 
-              <Text>
-                Give it a sec to load, its a hefty program.
+          {isMobile ? (
+            <Collapse.Group>
+              <Collapse title="ISS On Earth">
+                <Text h3>Where is the International Space Station?</Text>
                 <br></br>
-                Use your scroll wheel :)
-              </Text>
-              <iframe
-                src="https://arthurmois.github.io/our-cosmos/"
-                style={{ minWidth: "100%", minHeight: "400px" }}
-              ></iframe>
-              <Text style={{ maxWidth: "50%" }}>
-                I created this geo-centric model of our solar system using
-                <Text b> Three.JS</Text>, a powerful graphics library. All
-                objects in the scenes are rendered with actual data from NASA.
-                The model is scaled at 1:10^-4.2.
+                <Grid.Container gap={6} justify="left">
+                  <Grid xs={isMobile ? 24 : 8}>
+                    <Text>
+                      Ever wondered:
+                      <Text b>
+                        {" "}
+                        &quot;Since the ISS orbits Earth, what is its
+                        terrestrial position?&quot;
+                      </Text>
+                      . Well, probably not, but here it is anyway!
+                      <br></br>
+                      <br></br>I created this app with <Text b>React</Text> and
+                      an API call to get a JSON object containing the lattitude
+                      and longitude of the ISS. The blue dot is being updated
+                      using a useState hook that gets the position every 3
+                      seconds.
+                      <br></br>
+                      <br></br>
+                      Feel free to zoom in/out and move the map around (the ISS
+                      might be at the edge of the map)
+                    </Text>
+                  </Grid>
+                  <Grid xs={isMobile ? 24 : 16}>
+                    <div
+                      style={{
+                        minWidth: "100%",
+                        borderStyle: "solid",
+                        borderRadius: "25px",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <MapChart />
+                    </div>
+                  </Grid>
+                </Grid.Container>
+              </Collapse>
+              <Collapse title="Facebook Marketplace Replica">
+                <Grid.Container justify="left">
+                  <Grid xs={isMobile ? 24 : 8}>
+                    <Text>
+                      In a team of 3, we created a
+                      <Text b> Full Stack Web Application </Text>
+                      modeled after Facebook&apos;s Marketplace. I&apos;ve
+                      included a link to a youtube demonstration as opposed to a
+                      working demo since the proprietary web app is owned by the
+                      University of California.
+                      <br></br>
+                      <Link
+                        href="https://www.youtube.com/watch?v=yLhv-AQdZHA"
+                        icon
+                        color
+                      >
+                        Facebook Marketplace Replica Demo
+                      </Link>
+                      <br></br>
+                      <br></br>
+                      This app was created with{" "}
+                      <Text b>React, Node, Express, and PostgreSQL.</Text>
+                      It employs the use of REST APIs, JWT for authentication,
+                      and provides full usability throughout the stack
+                      including:
+                      <ul>
+                        <li>Create Account</li>
+                        <li>Create Listing</li>
+                        <li>View and Search Listings</li>
+                        <li>Reply to Listing</li>
+                        <li>Sort/Filter Functionality</li>
+                      </ul>
+                    </Text>
+                  </Grid>
+                  <Grid xs={isMobile ? 24 : 16}>
+                    <Display shadow>
+                      <Image height="200px" src="/fbreplica.png" />
+                    </Display>
+                  </Grid>
+                </Grid.Container>
+              </Collapse>
+              <Collapse title="Model Solar System">
+                <Text>
+                  Give it a sec to load, its a hefty program.
+                  <br></br>
+                  Use your scroll wheel :)
+                </Text>
+                <iframe
+                  src="https://arthurmois.github.io/our-cosmos/"
+                  style={{ minWidth: "100%", minHeight: "400px" }}
+                ></iframe>
+                <Text
+                  style={isMobile ? { maxWidth: "100%" } : { maxWidth: "50%" }}
+                >
+                  I created this geo-centric model of our solar system using
+                  <Text b> Three.JS</Text>, a powerful graphics library. All
+                  objects in the scenes are rendered with actual data from NASA.
+                  The model is scaled at 1:10^-4.2.
+                  <br></br>
+                  <br></br>
+                  Using the mouse buttons you may translate and rotate the
+                  camera as if you were an astronaut in space with a video
+                  camera. Feel free to hop around from planet to planet with the
+                  navigation buttons.
+                </Text>
+              </Collapse>
+              <Collapse title="Target Practice (1st Place Award Winner)">
+                <Grid.Container gap={4}>
+                  <Grid xs={isMobile ? 24 : 8}>
+                    <Text>
+                      My professor in my Computer Graphics class, hosted a
+                      competition halfway through the semester. Using the
+                      technologies we&apos;ve already learned, all contestants
+                      were to create some 3D scene within the span of 24 hours.
+                      <br></br>
+                      <br></br>
+                      In order to blow my competitors out of the water, I knew I
+                      had to be different, so in the time frame, I also built a
+                      physics engine on top of my 3D scene and built this FPS
+                      aim training game. Using Linear Algebra and some Physics,
+                      I was able to build a fairly accurate game using WebGL and
+                      some keyboard/mouse input libraries. I won 1st place in
+                      all cateogries, gathering over 70% of all votes.
+                      <br></br>
+                      <br></br>
+                      To enter the environment just click on the scene, and to
+                      exit hit <Code>ESC</Code>. You may use WASD and the mouse
+                      to walk around and shoot the training targets.
+                    </Text>
+                  </Grid>
+                  <Grid xs={isMobile ? 24 : 16}>
+                    <iframe
+                      src="https://arthurmois.github.io/target-practice/"
+                      style={{ minWidth: "100%", minHeight: "600px" }}
+                    ></iframe>
+                  </Grid>
+                </Grid.Container>
+              </Collapse>
+            </Collapse.Group>
+          ) : (
+            <Tabs initialValue="1" align="center">
+              <Tabs.Item label="ISS on Earth" value="1">
+                <Text h3>Where is the International Space Station?</Text>
                 <br></br>
+                <Grid.Container gap={6} justify="left">
+                  <Grid xs={isMobile ? 24 : 8}>
+                    <Text>
+                      Ever wondered:
+                      <Text b>
+                        {" "}
+                        &quot;Since the ISS orbits Earth, what is its
+                        terrestrial position?&quot;
+                      </Text>
+                      . Well, probably not, but here it is anyway!
+                      <br></br>
+                      <br></br>I created this app with <Text b>React</Text> and
+                      an API call to get a JSON object containing the lattitude
+                      and longitude of the ISS. The blue dot is being updated
+                      using a useState hook that gets the position every 3
+                      seconds.
+                      <br></br>
+                      <br></br>
+                      Feel free to zoom in/out and move the map around (the ISS
+                      might be at the edge of the map)
+                    </Text>
+                  </Grid>
+                  <Grid xs={isMobile ? 24 : 16}>
+                    <div
+                      style={{
+                        minWidth: "100%",
+                        borderStyle: "solid",
+                        borderRadius: "25px",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <MapChart />
+                    </div>
+                  </Grid>
+                </Grid.Container>
+              </Tabs.Item>
+              <Tabs.Item label="Facebook Marketplace Replica" value="2">
+                <Text h3>Facebook Marketplace Replica</Text>
                 <br></br>
-                Using the mouse buttons you may translate and rotate the camera
-                as if you were an astronaut in space with a video camera. Feel
-                free to hop around from planet to planet with the navigation
-                buttons.
-              </Text>
-            </Tabs.Item>
-            <Tabs.Item
-              label="Target Practice (1st Place Award Winner)"
-              value="4"
-            >
-              <Grid.Container gap={4}>
-                <Grid xs={8}>
-                  <Text>
-                    My professor in my Computer Graphics class, hosted a
-                    competition halfway through the semester. Using the
-                    technologies we&apos;ve already learned, all contestants
-                    were to create some 3D scene within the span of 24 hours.
-                    <br></br>
-                    <br></br>
-                    In order to blow my competitors out of the water, I knew I
-                    had to be different, so in the time frame, I also built a
-                    physics engine on top of my 3D scene and built this FPS aim
-                    training game. Using Linear Algebra and some Physics, I was
-                    able to build a fairly accurate game using WebGL and some
-                    keyboard/mouse input libraries. I won 1st place in all
-                    cateogries, gathering over 70% of all votes.
-                    <br></br>
-                    <br></br>
-                    To enter the environment just click on the scene, and to
-                    exit hit <Code>ESC</Code>. You may use WASD and the mouse to
-                    walk around and shoot the training targets.
-                  </Text>
-                </Grid>
-                <Grid xs={16}>
-                  <iframe
-                    src="https://arthurmois.github.io/target-practice/"
-                    style={{ minWidth: "100%", minHeight: "600px" }}
-                  ></iframe>
-                </Grid>
-              </Grid.Container>
-            </Tabs.Item>
-          </Tabs>
+                <Grid.Container justify="left">
+                  <Grid xs={isMobile ? 24 : 8}>
+                    <Text>
+                      In a team of 3, we created a
+                      <Text b> Full Stack Web Application </Text>
+                      modeled after Facebook&apos;s Marketplace. I&apos;ve
+                      included a link to a youtube demonstration as opposed to a
+                      working demo since the proprietary web app is owned by the
+                      University of California.
+                      <br></br>
+                      <Link
+                        href="https://www.youtube.com/watch?v=yLhv-AQdZHA"
+                        icon
+                        color
+                      >
+                        Facebook Marketplace Replica Demo
+                      </Link>
+                      <br></br>
+                      <br></br>
+                      This app was created with{" "}
+                      <Text b>React, Node, Express, and PostgreSQL.</Text>
+                      It employs the use of REST APIs, JWT for authentication,
+                      and provides full usability throughout the stack
+                      including:
+                      <ul>
+                        <li>Create Account</li>
+                        <li>Create Listing</li>
+                        <li>View and Search Listings</li>
+                        <li>Reply to Listing</li>
+                        <li>Sort/Filter Functionality</li>
+                      </ul>
+                    </Text>
+                  </Grid>
+                  <Grid xs={isMobile ? 24 : 16}>
+                    <Display shadow>
+                      <Image height="200px" src="/fbreplica.png" />
+                    </Display>
+                  </Grid>
+                </Grid.Container>
+              </Tabs.Item>
+              <Tabs.Item label="Model Solar System" value="3">
+                <Text h3>Model Solar System</Text>
+
+                <Text>
+                  Give it a sec to load, its a hefty program.
+                  <br></br>
+                  Use your scroll wheel :)
+                </Text>
+                <iframe
+                  src="https://arthurmois.github.io/our-cosmos/"
+                  style={{ minWidth: "100%", minHeight: "400px" }}
+                ></iframe>
+                <Text
+                  style={isMobile ? { maxWidth: "100%" } : { maxWidth: "50%" }}
+                >
+                  I created this geo-centric model of our solar system using
+                  <Text b> Three.JS</Text>, a powerful graphics library. All
+                  objects in the scenes are rendered with actual data from NASA.
+                  The model is scaled at 1:10^-4.2.
+                  <br></br>
+                  <br></br>
+                  Using the mouse buttons you may translate and rotate the
+                  camera as if you were an astronaut in space with a video
+                  camera. Feel free to hop around from planet to planet with the
+                  navigation buttons.
+                </Text>
+              </Tabs.Item>
+              <Tabs.Item
+                label="Target Practice (1st Place Award Winner)"
+                value="4"
+              >
+                <Grid.Container gap={4}>
+                  <Grid xs={isMobile ? 24 : 8}>
+                    <Text>
+                      My professor in my Computer Graphics class, hosted a
+                      competition halfway through the semester. Using the
+                      technologies we&apos;ve already learned, all contestants
+                      were to create some 3D scene within the span of 24 hours.
+                      <br></br>
+                      <br></br>
+                      In order to blow my competitors out of the water, I knew I
+                      had to be different, so in the time frame, I also built a
+                      physics engine on top of my 3D scene and built this FPS
+                      aim training game. Using Linear Algebra and some Physics,
+                      I was able to build a fairly accurate game using WebGL and
+                      some keyboard/mouse input libraries. I won 1st place in
+                      all cateogries, gathering over 70% of all votes.
+                      <br></br>
+                      <br></br>
+                      To enter the environment just click on the scene, and to
+                      exit hit <Code>ESC</Code>. You may use WASD and the mouse
+                      to walk around and shoot the training targets.
+                    </Text>
+                  </Grid>
+                  <Grid xs={isMobile ? 24 : 16}>
+                    <iframe
+                      src="https://arthurmois.github.io/target-practice/"
+                      style={{ minWidth: "100%", minHeight: "600px" }}
+                    ></iframe>
+                  </Grid>
+                </Grid.Container>
+              </Tabs.Item>
+            </Tabs>
+          )}
           <br></br>
           <br id="contact"></br>
           <br></br>
@@ -335,9 +505,7 @@ export default function Home() {
         <br></br>
         <br></br>
         <br></br>
-        <Page.Footer align="center">
-          Arthur Mois
-        </Page.Footer>
+        <Page.Footer align="center">Arthur Mois</Page.Footer>
       </Page>
     </div>
   );
