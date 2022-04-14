@@ -485,20 +485,20 @@ export default function Home() {
           <Divider>
             <Text h3>Contact</Text>
           </Divider>
-          <Text>
+          <br></br>
             <Mail></Mail>{" "}
             <Link href="mailto:arthurmois@gmail.com" color>
               arthurmois@gmail.com
             </Link>
             <br></br>
-            <Phone></Phone> +19164778861
+            <Phone></Phone>{" "}
+            <Link href="tel:19164778861" color>(916) 477-8861</Link>
             <br></br>
             <Linkedin></Linkedin>{" "}
             <Link href="https://www.linkedin.com/in/arthurmois/" color>
               Arthur Mois
             </Link>
             <br></br>
-          </Text>
         </Page.Content>
         <br></br>
         <br></br>
