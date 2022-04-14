@@ -244,7 +244,7 @@ export default function Home() {
                       modeled after Facebook&apos;s Marketplace. I&apos;ve
                       included a link to a youtube demonstration as opposed to a
                       working demo since the proprietary web app is owned by the
-                      University of California.
+                      University of California as part of a student-administration agreement.
                       <br></br>
                       <Link
                         href="https://www.youtube.com/watch?v=yLhv-AQdZHA"
