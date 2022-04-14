@@ -523,8 +523,9 @@ export default function Home() {
         <br></br>
         <br></br>
         <br></br>
-        <Page.Footer align="center">Arthur Mois</Page.Footer>
+        <Page.Footer align="center">Created by Arthur Mois</Page.Footer>
       </Page>
+      <br></br>
     </div>
   );
 }
