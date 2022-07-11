@@ -103,7 +103,7 @@ export default function Home() {
               hideBorder
               hideDivider
               initialValue="1"
-              activeStyles={{ color: "yellow" }}
+              activestyles={{ color: "yellow" }}
             >
               <Tabs.Item label="About" value="1"></Tabs.Item>
               <Tabs.Item label="Projects" value="2"></Tabs.Item>
@@ -197,6 +197,7 @@ export default function Home() {
             <Collapse.Group>
               <Collapse title="ISS On Earth">
                 <Text h3>Where is the International Space Station?</Text>
+                <Text h6>You may need to drag the map around to find it ;)</Text>
                 <br></br>
                 <Grid.Container gap={6} justify="left">
                   <Grid xs={isMobile ? 24 : 8}>
@@ -341,6 +342,7 @@ export default function Home() {
             <Tabs initialValue="1" align="center">
               <Tabs.Item label="ISS on Earth" value="1">
                 <Text h3>Where is the International Space Station?</Text>
+                <Text h6>You may need to drag the map around to find it ;)</Text>
                 <br></br>
                 <Grid.Container gap={6} justify="left">
                   <Grid xs={isMobile ? 24 : 8}>
