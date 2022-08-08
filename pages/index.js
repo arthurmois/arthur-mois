@@ -126,7 +126,7 @@ export default function Home() {
             Arthur Mois
           </Text>
           <Text h3 center style={{ color: "grey" }}>
-            I&apos;m a Software Engineer seeking opportunities.
+            Software Engineer / Startup Dreamer
             <br></br>
             Eager to get my hands dirty...
           </Text>
