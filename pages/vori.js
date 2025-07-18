@@ -48,7 +48,6 @@ export default function Vori() {
               <ul style={{ margin: 0, paddingLeft: 24 }}>
                 <li>Internal tool for <b>...</b> (describe purpose)</li>
                 <li>Used by teams to <b>...</b></li>
-                <li>Key for <b>...</b> in Aurora's workflow</li>
               </ul>
               <Spacer h={0.5} />
               <Text h4>Ownership</Text>
