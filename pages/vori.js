@@ -2,7 +2,7 @@ import { Page, Text, Divider, Card, Spacer, Input, Button } from "@geist-ui/core
 import Head from "next/head";
 import { useState } from "react";
 
-const PASSCODE = "robertp";
+const PASSCODE = "vori25";
 
 export default function Vori() {
   const [passcode, setPasscode] = useState("");
