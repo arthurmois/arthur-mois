@@ -19,7 +19,7 @@ import MapChart from "../projects/mapchart";
 import { Linkedin, Mail, Phone, Menu } from "@geist-ui/icons";
 
 export default function Home() {
-  const isMobile = useMediaQuery("xs");
+  const isMobile = useMediaQuery("sm");
   const router = useRouter();
   const [open, setOpen] = useState(false);
   return (
@@ -36,489 +36,284 @@ export default function Home() {
       </Head>
       <Page width={isMobile ? "100%" : undefined}>
         <Page.Header>
-          <br></br>
-          {isMobile ? (
-            <>
-              <div style={{ float: "right" }}>
-                <Menu size={36} onClick={() => setOpen(true)} scale={1 / 2}>
-                  Show Drawer
-                </Menu>
+          <nav style={{
+            position: 'sticky',
+            top: 0,
+            zIndex: 100,
+            background: 'rgba(248,250,252,0.95)',
+            boxShadow: '0 2px 8px rgba(60,60,100,0.04)',
+            borderRadius: '0 0 16px 16px',
+            padding: isMobile ? '12px 16px' : '16px 48px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+          }}>
+            <span style={{ fontWeight: 700, fontSize: isMobile ? '1.1rem' : '1.3rem', letterSpacing: '0.02em', color: '#4D553A' }}>
+              Arthur Mois
+            </span>
+            {isMobile ? (
+              <Menu size={32} onClick={() => setOpen(true)} style={{ cursor: 'pointer' }} />
+            ) : (
+              <div style={{ display: 'flex', gap: '32px', fontWeight: 500 }}>
+                <a href="#about" style={{ textDecoration: 'none', color: '#586142', transition: 'color 0.2s' }}>About</a>
+                <a href="#projects" style={{ textDecoration: 'none', color: '#586142', transition: 'color 0.2s' }}>Projects</a>
+                <a href="#contact" style={{ textDecoration: 'none', color: '#586142', transition: 'color 0.2s' }}>Contact</a>
               </div>
-              <Drawer
-                visible={open}
-                onClose={() => setOpen(false)}
-                placement="right"
-              >
-                <Drawer.Title>Arthur Mois</Drawer.Title>
-                <Drawer.Content>
-                  <Button
-                    onClick={() => {
-                      setOpen(false);
-                      router.push("#about");
-                    }}
-                  >
-                    About
-                  </Button>
-                  <br></br>
-                  <br></br>
-                  <Button
-                    onClick={() => {
-                      setOpen(false);
-                      router.push("#projects");
-                    }}
-                  >
-                    Projects
-                  </Button>
-                  <br></br>
-                  <br></br>
-                  <Button
-                    onClick={() => {
-                      setOpen(false);
-                      router.push("#contact");
-                    }}
-                  >
-                    Contact
-                  </Button>
-                </Drawer.Content>
-              </Drawer>
-            </>
-          ) : (
-            <Tabs
-              onChange={(val) => {
-                switch (val) {
-                  case "1":
-                    router.push("#about");
-                    break;
-                  case "2":
-                    router.push("#projects");
-                    break;
-                  case "4":
-                    router.push("#contact");
-                    break;
-                  default:
-                    console.log(val);
-                }
-              }}
-              align="right"
-              hideBorder
-              hideDivider
-              initialValue="1"
-              activestyles={{ color: "yellow" }}
+            )}
+            <Drawer
+              visible={open}
+              onClose={() => setOpen(false)}
+              placement="right"
             >
-              <Tabs.Item label="About" value="1"></Tabs.Item>
-              <Tabs.Item label="Projects" value="2"></Tabs.Item>
-              {/* <Tabs.Item label="Experience" value="3"></Tabs.Item> */}
-              <Tabs.Item label="Contact" value="4"></Tabs.Item>
-            </Tabs>
-          )}
+              <Drawer.Title>Menu</Drawer.Title>
+              <Drawer.Content>
+                <Button
+                  onClick={() => {
+                    setOpen(false);
+                    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  style={{ width: '100%', marginBottom: 16 }}
+                >
+                  About
+                </Button>
+                <Button
+                  onClick={() => {
+                    setOpen(false);
+                    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  style={{ width: '100%', marginBottom: 16 }}
+                >
+                  Projects
+                </Button>
+                <Button
+                  onClick={() => {
+                    setOpen(false);
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  style={{ width: '100%' }}
+                >
+                  Contact
+                </Button>
+              </Drawer.Content>
+            </Drawer>
+          </nav>
         </Page.Header>
         <Page.Content>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <Text h4 center>
-            Hi, my name is
-          </Text>
-          <Text h1 center>
-            Arthur Mois
-          </Text>
-          <Text h3 center style={{ color: "grey" }}>
-            Software Engineer / Startup Dreamer
-            <br></br>
-            Eager to get my hands dirty...
-          </Text>
-          <Text h6 center style={{ color: "grey" }}>
-            you know, &apos;cuz germs on keyboards and all.
-          </Text>
-          {/* <Display shadow>
-            <Image height="200px" src="/profile.jpg" />
-          </Display> 
+          <section id="about" style={{
+            maxWidth: '1000px',
+            margin: 'auto',
+            background: 'linear-gradient(300deg, #f8fafc 0%, #e0e7ef 100%)',
+            borderRadius: '32px',
+            boxShadow: '0 4px 32px rgba(60,60,100,0.07)',
+            padding: isMobile ? '48px 12px 32px 12px' : '64px 48px',
+            minHeight: isMobile ? 'auto' : '340px',
+            display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
+            alignItems: isMobile ? 'center' : 'flex-start',
+            gap: isMobile ? '32px' : '48px',
+          }}>
+            {/* Profile Image - top right in card on desktop, centered on mobile */}
+            <div
+              style={
+                isMobile
+                  ? { display: 'flex', justifyContent: 'center', width: '100%' }
+                  : { display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }
+              }
+            >
 
-          style={{ backgroundColor: "#bdc8db" }}
-          
-          style={{color:"#424932"}}
-          style={{color:"#4D553A"}}
-          style={{color:"#586142"}}
-          */}
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br id="about"></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <Divider align="start" style={{ maxWidth: "75%" }}>
-            <Text h3>About</Text>
-          </Divider>
-          <Grid.Container justify="left">
-            <Grid xs={isMobile ? 24 : 12}>
+            </div>
+            {/* Main Content */}
+            <div style={{
+              flex: 3,
+              textAlign: 'left',
+              marginTop: isMobile ? 0 : '8px',
+            }}>
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                  <Text h4 style={{ color: '#586142', marginBottom: 0 }}>Hi, my name is</Text>
+                  <Text h1 style={{ fontSize: isMobile ? '2.2rem' : '3rem', margin: '8px 0' }}>Arthur Mois</Text>
+                  <Text h6 style={{ color: '#586142', marginBottom: 0 }}>And this is my wife Ksenia in the photo</Text>
+                  <Text h3 style={{ color: '#4D553A', fontWeight: 600, margin: '8px 0' }}>
+                    Software Engineer / Startup Dreamer
+                  </Text>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'flex-end' }}></div>
+                <Image
+                  src="/profile.jpg"
+                  width={10}
+                  height={10}
+                  style={{
+                    borderRadius: '50%',
+                    border: '2px solid #e0e7ef',
+                    boxShadow: '0 2px 8px rgba(60,60,100,0.10)',
+                    objectFit: 'cover',
+                    marginLeft: 'auto'
+                  }}
+                  alt="Arthur Mois profile"
+                />
+              </div>
               <Text>
-                <br></br>
-                Hello! My name is Arthur, I am an aspiring engineer and
-                innovator. I&apos;m interested in
-                <Text b> Web Applications</Text> development as well as{" "}
-                <Text b> Computer Graphics</Text> and Computer Vision. I also
-                have an immense fascination with Aerospace and Astronomy as well
-                as Mathematics research and Applied Physics, which I hope to
-                someday work with.
-                <br></br>
-                <br></br>
-                I&apos;ve had the pleasure of working with modern technologies
-                such as
-                <Text b>
-                  {" "}
-                  React, Node, PostgreSQL, Next.JS, Three.JS, Spline,
-                </Text>{" "}
-                and many more.
+                Hello! My name is Arthur, I am an engineer and innovator with a focus on <Text b>UI/UX</Text> and <Text b>Computer Graphics</Text>. I&apos;m focused on building <Text b>Sleek Web Applications</Text> as well as <Text b>Computer Graphics, Self-Driving,</Text> and <Text b>Computer Vision</Text>. I also have an immense fascination with Aerospace and Astronomy as well as Mathematics research and Applied Physics, which I hope to someday work with.
+                <br /><br />
+                I&apos;ve had over <Text b>5 years</Text> of experience working with modern technologies such as:
               </Text>
-            </Grid>
-            <Grid xs={isMobile ? 24 : 12}>
-              <Display shadow>
-                <Image height="200px" src="/profile.jpg" />
-              </Display>
-            </Grid>
-          </Grid.Container>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br id="projects"></br>
-          <br></br>
-          <br></br>
-          <Text h3 align="center">
-            Projects
-          </Text>
-          {isMobile ? (
-            <Collapse.Group>
-              <Collapse title="ISS On Earth">
-                <Text h3>Where is the International Space Station?</Text>
-                <Text h6>You may need to drag the map around to find it ;)</Text>
-                <br></br>
-                <Grid.Container gap={6} justify="left">
-                  <Grid xs={isMobile ? 24 : 8}>
-                    <Text>
-                      Ever wondered:
-                      <Text b>
-                        {" "}
-                        &quot;Since the ISS orbits Earth, what is its
-                        terrestrial position?&quot;
-                      </Text>
-                      . Well, probably not, but here it is anyway!
-                      <br></br>
-                      <br></br>I created this app with <Text b>React</Text> and
-                      an API call to get a JSON object containing the lattitude
-                      and longitude of the ISS. The blue dot is being updated
-                      using a useState hook that gets the position every 3
-                      seconds.
-                      <br></br>
-                      <br></br>
-                      Feel free to zoom in/out and move the map around (the ISS
-                      might be at the edge of the map)
-                    </Text>
-                  </Grid>
-                  <Grid xs={isMobile ? 24 : 16}>
-                    <div
-                      style={{
-                        minWidth: "100%",
-                        borderStyle: "solid",
-                        borderRadius: "25px",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <MapChart />
-                    </div>
-                  </Grid>
-                </Grid.Container>
-              </Collapse>
-              <Collapse title="Facebook Marketplace Replica">
-                <Grid.Container justify="left">
-                  <Grid xs={isMobile ? 24 : 8}>
-                    <Text>
-                      In a team of 3, we created a
-                      <Text b> Full Stack Web Application </Text>
-                      modeled after Facebook&apos;s Marketplace. I&apos;ve
-                      included a link to a youtube demonstration as opposed to a
-                      working demo since the proprietary web app is owned by the
-                      University of California as part of a student-administration agreement.
-                      <br></br>
-                      <Link
-                        href="https://www.youtube.com/watch?v=yLhv-AQdZHA"
-                        icon
-                        color
-                        target="_blank"
-                      >
-                        Facebook Marketplace Replica Demo
-                      </Link>
-                      <br></br>
-                      <br></br>
-                      This app was created with{" "}
-                      <Text b>React, Node, Express, and PostgreSQL.</Text>
-                      It employs the use of REST APIs, JWT for authentication,
-                      and provides full usability throughout the stack
-                      including:
-                      <ul>
-                        <li>Create Account</li>
-                        <li>Create Listing</li>
-                        <li>View and Search Listings</li>
-                        <li>Reply to Listing</li>
-                        <li>Sort/Filter Functionality</li>
-                      </ul>
-                    </Text>
-                  </Grid>
-                  <Grid xs={isMobile ? 24 : 16}>
-                    <Display shadow>
-                      <Image height="200px" src="/fbreplica.png" />
-                    </Display>
-                  </Grid>
-                </Grid.Container>
-              </Collapse>
-              <Collapse title="Model Solar System">
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', margin: '18px 0 0 0', justifyContent: 'flex-start' }}>
+                <span style={{ background: '#e0e7ef', color: '#424932', borderRadius: '12px', padding: '6px 16px', fontWeight: 600 }}>React</span>
+                <span style={{ background: '#e0e7ef', color: '#424932', borderRadius: '12px', padding: '6px 16px', fontWeight: 600 }}>Node.js</span>
+                <span style={{ background: '#e0e7ef', color: '#424932', borderRadius: '12px', padding: '6px 16px', fontWeight: 600 }}>GraphQL</span>
+                <span style={{ background: '#e0e7ef', color: '#424932', borderRadius: '12px', padding: '6px 16px', fontWeight: 600 }}>Go</span>
+                <span style={{ background: '#e0e7ef', color: '#424932', borderRadius: '12px', padding: '6px 16px', fontWeight: 600 }}>Postgres</span>
+                <span style={{ background: '#e0e7ef', color: '#424932', borderRadius: '12px', padding: '6px 16px', fontWeight: 600 }}>Next.js</span>
+                <span style={{ background: '#e0e7ef', color: '#424932', borderRadius: '12px', padding: '6px 16px', fontWeight: 600 }}>Three.js</span>
+                <span style={{ background: '#e0e7ef', color: '#424932', borderRadius: '12px', padding: '6px 16px', fontWeight: 600 }}>Spline</span>
+                <span style={{ background: '#e0e7ef', color: '#424932', borderRadius: '12px', padding: '6px 16px', fontWeight: 600 }}>and more...</span>
+              </div>
+            </div>
+          </section>
+          <section id="projects" style={{
+            maxWidth: '1100px',
+            margin: '0 auto',
+            padding: isMobile ? '32px 8px' : '48px 0',
+          }}>
+            <Text h2 align="center" style={{ color: '#4D553A', marginBottom: 32 }}>Projects</Text>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+              gap: '32px',
+            }}>
+              {/* ISS On Earth Project Card */}
+              <div style={{
+                background: '#fff',
+                borderRadius: '20px',
+                boxShadow: '0 2px 16px rgba(60,60,100,0.07)',
+                padding: '28px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px',
+              }}>
+                <Text h3 style={{ margin: 0 }}>ISS On Earth</Text>
+                <div style={{ minHeight: 180, borderRadius: 16, overflow: 'hidden', border: '1px solid #e0e7ef', background: '#f8fafc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <MapChart />
+                </div>
                 <Text>
-                  Give it a sec to load, its a hefty program.
-                  <br></br>
-                  Use your scroll wheel :)
+                  Ever wondered where the ISS is above Earth right now? This app fetches the ISS position every 3 seconds and displays it on a live map. Built with <b>React</b> and a public API.
                 </Text>
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  <span style={{ background: '#e0e7ef', borderRadius: '8px', padding: '4px 12px', fontWeight: 600 }}>React</span>
+                  <span style={{ background: '#e0e7ef', borderRadius: '8px', padding: '4px 12px', fontWeight: 600 }}>API</span>
+                </div>
+              </div>
+              {/* Facebook Marketplace Replica Card */}
+              <div style={{
+                background: '#fff',
+                borderRadius: '20px',
+                boxShadow: '0 2px 16px rgba(60,60,100,0.07)',
+                padding: '28px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px',
+              }}>
+                <Text h3 style={{ margin: 0 }}>Facebook Marketplace Replica</Text>
+                <Display shadow>
+                  <Image height="120px" src="/fbreplica.png" style={{ borderRadius: '12px', objectFit: 'cover' }} />
+                </Display>
+                <Text>
+                  A full stack web app modeled after Facebook's Marketplace. Features account creation, listing, search, and more. Built with <b>React</b>, <b>Node</b>, <b>Express</b>, and <b>PostgreSQL</b>.
+                </Text>
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  <span style={{ background: '#e0e7ef', borderRadius: '8px', padding: '4px 12px', fontWeight: 600 }}>React</span>
+                  <span style={{ background: '#e0e7ef', borderRadius: '8px', padding: '4px 12px', fontWeight: 600 }}>Node.js</span>
+                  <span style={{ background: '#e0e7ef', borderRadius: '8px', padding: '4px 12px', fontWeight: 600 }}>Express</span>
+                  <span style={{ background: '#e0e7ef', borderRadius: '8px', padding: '4px 12px', fontWeight: 600 }}>PostgreSQL</span>
+                </div>
+                <Link href="https://www.youtube.com/watch?v=yLhv-AQdZHA" target="_blank" color>Demo Video</Link>
+              </div>
+              {/* Model Solar System Card */}
+              <div style={{
+                background: '#fff',
+                borderRadius: '20px',
+                boxShadow: '0 2px 16px rgba(60,60,100,0.07)',
+                padding: '28px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px',
+              }}>
+                <Text h3 style={{ margin: 0 }}>Model Solar System</Text>
                 <iframe
                   src="https://arthurmois.github.io/our-cosmos/"
-                  style={{ minWidth: "100%", minHeight: "400px" }}
+                  style={{ minWidth: '100%', minHeight: '180px', borderRadius: '12px', border: '1px solid #e0e7ef' }}
                 ></iframe>
-                <Text
-                  style={isMobile ? { maxWidth: "100%" } : { maxWidth: "50%" }}
-                >
-                  I created this geo-centric model of our solar system using
-                  <Text b> Three.JS</Text>, a powerful graphics library. All
-                  objects in the scenes are rendered with actual data from NASA.
-                  The model is scaled at 1:10^-4.2.
-                  <br></br>
-                  <br></br>
-                  Using the mouse buttons you may translate and rotate the
-                  camera as if you were an astronaut in space with a video
-                  camera. Feel free to hop around from planet to planet with the
-                  navigation buttons.
-                </Text>
-              </Collapse>
-              <Collapse title="Target Practice (1st Place Award Winner)">
-                <Grid.Container gap={4}>
-                  <Grid xs={isMobile ? 24 : 8}>
-                    <Text>
-                      <h5>Note: only works on desktop</h5>
-                      <br></br>
-                      My professor in my Computer Graphics class, hosted a
-                      competition halfway through the semester. Using the
-                      technologies we&apos;ve already learned, all contestants
-                      were to create some 3D scene within the span of 24 hours.
-                      <br></br>
-                      <br></br>
-                      In order to blow my competitors out of the water, I knew I
-                      had to be different, so in the time frame, I also built a
-                      physics engine on top of my 3D scene and built this FPS
-                      aim training game. Using Linear Algebra and some Physics,
-                      I was able to build a fairly accurate game using WebGL and
-                      some keyboard/mouse input libraries. I won 1st place in
-                      all cateogries, gathering over 70% of all votes.
-                      <br></br>
-                      <br></br>
-                      To enter the environment just click on the scene, and to
-                      exit hit <Code>ESC</Code>. You may use WASD and the mouse
-                      to walk around and shoot the training targets.
-                    </Text>
-                  </Grid>
-                  <Grid xs={isMobile ? 24 : 16}>
-                    <iframe
-                      src="https://arthurmois.github.io/target-practice/"
-                      style={{ minWidth: "100%", minHeight: "600px" }}
-                    ></iframe>
-                  </Grid>
-                </Grid.Container>
-              </Collapse>
-            </Collapse.Group>
-          ) : (
-            <Tabs initialValue="1" align="center">
-              <Tabs.Item label="ISS on Earth" value="1">
-                <Text h3>Where is the International Space Station?</Text>
-                <Text h6>You may need to drag the map around to find it ;)</Text>
-                <br></br>
-                <Grid.Container gap={6} justify="left">
-                  <Grid xs={isMobile ? 24 : 8}>
-                    <Text>
-                      Ever wondered:
-                      <Text b>
-                        {" "}
-                        &quot;Since the ISS orbits Earth, what is its
-                        terrestrial position?&quot;
-                      </Text>
-                      . Well, probably not, but here it is anyway!
-                      <br></br>
-                      <br></br>I created this app with <Text b>React</Text> and
-                      an API call to get a JSON object containing the lattitude
-                      and longitude of the ISS. The blue dot is being updated
-                      using a useState hook that gets the position every 3
-                      seconds.
-                      <br></br>
-                      <br></br>
-                      Feel free to zoom in/out and move the map around (the ISS
-                      might be at the edge of the map)
-                    </Text>
-                  </Grid>
-                  <Grid xs={isMobile ? 24 : 16}>
-                    <div
-                      style={{
-                        minWidth: "100%",
-                        borderStyle: "solid",
-                        borderRadius: "25px",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <MapChart />
-                    </div>
-                  </Grid>
-                </Grid.Container>
-              </Tabs.Item>
-              <Tabs.Item label="Facebook Marketplace Replica" value="2">
-                <Text h3>Facebook Marketplace Replica</Text>
-                <br></br>
-                <Grid.Container justify="left">
-                  <Grid xs={isMobile ? 24 : 8}>
-                    <Text>
-                      In a team of 3, we created a
-                      <Text b> Full Stack Web Application </Text>
-                      modeled after Facebook&apos;s Marketplace. I&apos;ve
-                      included a link to a youtube demonstration as opposed to a
-                      working demo since the proprietary web app is owned by the
-                      University of California.
-                      <br></br>
-                      <Link
-                        href="https://www.youtube.com/watch?v=yLhv-AQdZHA"
-                        target="_blank"
-                        icon
-                        color
-                      >
-                        Facebook Marketplace Replica Demo
-                      </Link>
-                      <br></br>
-                      <br></br>
-                      This app was created with{" "}
-                      <Text b>React, Node, Express, and PostgreSQL.</Text>
-                      It employs the use of REST APIs, JWT for authentication,
-                      and provides full usability throughout the stack
-                      including:
-                      <ul>
-                        <li>Create Account</li>
-                        <li>Create Listing</li>
-                        <li>View and Search Listings</li>
-                        <li>Reply to Listing</li>
-                        <li>Sort/Filter Functionality</li>
-                      </ul>
-                    </Text>
-                  </Grid>
-                  <Grid xs={isMobile ? 24 : 16}>
-                    <Display shadow>
-                      <Image height="200px" src="/fbreplica.png" />
-                    </Display>
-                  </Grid>
-                </Grid.Container>
-              </Tabs.Item>
-              <Tabs.Item label="Model Solar System" value="3">
-                <Text h3>Model Solar System</Text>
-
                 <Text>
-                  Give it a sec to load, its a hefty program.
-                  <br></br>
-                  Use your scroll wheel :)
+                  A geo-centric, interactive model of our solar system using <b>Three.js</b> and real NASA data. Explore planets and navigate the cosmos!
                 </Text>
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  <span style={{ background: '#e0e7ef', borderRadius: '8px', padding: '4px 12px', fontWeight: 600 }}>Three.js</span>
+                  <span style={{ background: '#e0e7ef', borderRadius: '8px', padding: '4px 12px', fontWeight: 600 }}>NASA Data</span>
+                </div>
+                <Link href="https://arthurmois.github.io/our-cosmos/" target="_blank" color>Live Demo</Link>
+              </div>
+              {/* Target Practice Card */}
+              <div style={{
+                background: '#fff',
+                borderRadius: '20px',
+                boxShadow: '0 2px 16px rgba(60,60,100,0.07)',
+                padding: '28px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px',
+              }}>
+                <Text h3 style={{ margin: 0 }}>Target Practice (1st Place Award Winner)</Text>
                 <iframe
-                  src="https://arthurmois.github.io/our-cosmos/"
-                  style={{ minWidth: "100%", minHeight: "400px" }}
+                  src="https://arthurmois.github.io/target-practice/"
+                  style={{ minWidth: '100%', minHeight: '180px', borderRadius: '12px', border: '1px solid #e0e7ef' }}
                 ></iframe>
-                <Text
-                  style={isMobile ? { maxWidth: "100%" } : { maxWidth: "50%" }}
-                >
-                  I created this geo-centric model of our solar system using
-                  <Text b> Three.JS</Text>, a powerful graphics library. All
-                  objects in the scenes are rendered with actual data from NASA.
-                  The model is scaled at 1:10^-4.2.
-                  <br></br>
-                  <br></br>
-                  Using the mouse buttons you may translate and rotate the
-                  camera as if you were an astronaut in space with a video
-                  camera. Feel free to hop around from planet to planet with the
-                  navigation buttons.
+                <Text>
+                  FPS aim training game built in 24 hours for a graphics competition. Features a custom physics engine and 3D scene using <b>WebGL</b> and <b>Linear Algebra</b>.
                 </Text>
-              </Tabs.Item>
-              <Tabs.Item
-                label="Target Practice (1st Place Award Winner)"
-                value="4"
-              >
-                <Grid.Container gap={4}>
-                  <Grid xs={isMobile ? 24 : 8}>
-                    <Text>
-                      <h5>Note: only works on desktop</h5>
-                      <br></br>
-                      My professor in my Computer Graphics class, hosted a
-                      competition halfway through the semester. Using the
-                      technologies we&apos;ve already learned, all contestants
-                      were to create some 3D scene within the span of 24 hours.
-                      <br></br>
-                      <br></br>
-                      In order to blow my competitors out of the water, I knew I
-                      had to be different, so in the time frame, I also built a
-                      physics engine on top of my 3D scene and built this FPS
-                      aim training game. Using Linear Algebra and some Physics,
-                      I was able to build a fairly accurate game using WebGL and
-                      some keyboard/mouse input libraries. I won 1st place in
-                      all cateogries, gathering over 70% of all votes.
-                      <br></br>
-                      <br></br>
-                      To enter the environment just click on the scene, and to
-                      exit hit <Code>ESC</Code>. You may use WASD and the mouse
-                      to walk around and shoot the training targets.
-                    </Text>
-                  </Grid>
-                  <Grid xs={isMobile ? 24 : 16}>
-                    <iframe
-                      src="https://arthurmois.github.io/target-practice/"
-                      style={{ minWidth: "100%", minHeight: "600px" }}
-                    ></iframe>
-                  </Grid>
-                </Grid.Container>
-              </Tabs.Item>
-            </Tabs>
-          )}
-          <br></br>
-          <br id="contact"></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <Divider>
-            <Text h3>Contact</Text>
-          </Divider>
-          <br></br>
-          <Mail></Mail>{" "}
-          <Link href="mailto:arthurmois@gmail.com" color>
-            arthurmois@gmail.com
-          </Link>
-          <br></br>
-          <Phone></Phone>{" "}
-          <Link href="tel:19164778861" color>
-            (916) 477-8861
-          </Link>
-          <br></br>
-          <Linkedin></Linkedin>{" "}
-          <Link
-            href="https://www.linkedin.com/in/arthurmois/"
-            target="_blank"
-            color
-          >
-            Arthur Mois
-          </Link>
-          <br></br>
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  <span style={{ background: '#e0e7ef', borderRadius: '8px', padding: '4px 12px', fontWeight: 600 }}>WebGL</span>
+                  <span style={{ background: '#e0e7ef', borderRadius: '8px', padding: '4px 12px', fontWeight: 600 }}>Physics</span>
+                  <span style={{ background: '#e0e7ef', borderRadius: '8px', padding: '4px 12px', fontWeight: 600 }}>3D</span>
+                </div>
+                <Link href="https://arthurmois.github.io/target-practice/" target="_blank" color>Try It</Link>
+              </div>
+            </div>
+          </section>
+          <section id="contact" style={{
+            maxWidth: '600px',
+            margin: '0 auto',
+            background: '#fff',
+            borderRadius: '20px',
+            boxShadow: '0 2px 16px rgba(60,60,100,0.07)',
+            padding: isMobile ? '32px 12px' : '40px 40px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '24px',
+          }}>
+            <Text h2 style={{ color: '#4D553A', marginBottom: 8 }}>Contact</Text>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', width: '100%' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <Mail size={32} color="#4D553A" />
+                <Link href="mailto:arthurmois@gmail.com" color style={{ fontSize: '1.1rem', fontWeight: 600 }}>
+                  arthurmois@gmail.com
+                </Link>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <Phone size={32} color="#4D553A" />
+                <Link href="tel:19164778861" color style={{ fontSize: '1.1rem', fontWeight: 600 }}>
+                  (916) 477-8861
+                </Link>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <Linkedin size={32} color="#4D553A" />
+                <Link href="https://www.linkedin.com/in/arthurmois/" target="_blank" color style={{ fontSize: '1.1rem', fontWeight: 600 }}>
+                  Arthur Mois
+                </Link>
+              </div>
+            </div>
+          </section>
         </Page.Content>
         <br></br>
         <br></br>
