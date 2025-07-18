@@ -44,7 +44,7 @@ export default function Vori() {
               <li>Always am looking for ways to <b>bring tech to</b> mundane or overlooked parts of <b>everyday life</b></li>
               <br />
               <li>3 years at <b>Aurora Innovation</b> as a <b>Frontend Engineer</b></li>
-              <li>Trailblazed the development of <b>Aurora's</b> internal main Tucking Management System</li>
+              <li>Trailblazed the development of <b>Aurora&apos;s</b> internal main Tucking Management System</li>
               <li>Supported internal tooling for <b>AI/ML Engineers</b></li>
             </ul>
           </Card>
@@ -69,7 +69,7 @@ export default function Vori() {
                 <Spacer h={0.5} />
                 <Text h4 className="vori-h4">Ownership</Text>
                 <ul className="vori-list" style={{ margin: 0, paddingLeft: 24 }}>
-                  <li>Led a complete overhaul of Scout's <b>truck/load weight input process</b> (critical for safety, data ingested by truck control systems, added <b>BOL photo/scanning</b> support)</li>
+                  <li>Led a complete overhaul of Scout&apos;s <b>truck/load weight input process</b> (critical for safety, data ingested by truck control systems, added <b>BOL photo/scanning</b> support)</li>
                   <li>Major <b>visualization improvements</b>, targeting 60fps for smooth operator experience</li>
                   <li>Refactored backend to optimize <b>data flow</b> and reliability</li>
                   <li>Provided ongoing <b>support</b> and enhancements</li>
@@ -88,7 +88,7 @@ export default function Vori() {
                 <Text h4 className="vori-h4">Overview</Text>
                 <ul className="vori-list" style={{ margin: 0, paddingLeft: 24 }}>
                   <li>Public, <b>customer-facing application</b></li>
-                  <li><b>Aurora's Truck Management System</b></li>
+                  <li><b>Aurora&apos;s Truck Management System</b></li>
                   <li>Main features: <b>Fleet Management</b>, <b>Trip Scheduling</b>, and a map view of the fleet across the US</li>
                 </ul>
                 <Spacer h={0.5} />
