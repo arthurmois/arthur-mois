@@ -49,10 +49,10 @@ export default function Vori() {
             </ul>
           </Card>
           <Card shadow className="vori-card" style={{ marginBottom: 40, background: '#a7c7e7', padding: 20, color: '#222' }}>
-            <Text h2 className="vori-h2" style={{ color: '#4D553A', margin: 0 }}>Aurora Innovation</Text>
+            <Text h2 className="vori-h2" style={{ color: '#222', margin: 0 }}>Aurora Innovation</Text>
             <Divider my={0.5} />
             <div style={{ marginTop: 24 }}>
-              <Text h4 style={{ color: '#586142', marginBottom: 12 }}>Building Self-Driving Semi Trucks</Text>
+              <Text h4 style={{ color: '#222', marginBottom: 12 }}>Building Self-Driving Semi Trucks</Text>
               <ul className="vori-list" style={{ margin: 0, paddingLeft: 24 }}>
                 <li>Worked on Aurora&apos;s <b>Services Engineering</b> team</li>
                 <li>Provides support for all <b>internal applications</b> used by the company</li>
@@ -112,7 +112,7 @@ export default function Vori() {
             </div>
           </Card>
           <Card shadow className="vori-card" style={{ marginBottom: 32, background: '#d3defa', padding: 20, color: '#222' }}>
-            <Text h2 className="vori-h2" style={{ color: '#4D553A', margin: 0 }}>Strengths for <span style={{ color: '#4f46e5' }}>Vori</span></Text>
+            <Text h2 className="vori-h2" style={{ color: '#222', margin: 0 }}>Strengths for <span style={{ color: '#4f46e5' }}>Vori</span></Text>
             <Divider my={0.5} />
             <ul className="vori-list" style={{ margin: 0, paddingLeft: 24 }}>
               <li><b>UI/UX focus</b> – passionate about building intuitive, user-friendly interfaces, especially for complex workflows like POS and back office systems</li>
@@ -123,7 +123,7 @@ export default function Vori() {
             </ul>
           </Card>
           <Card shadow className="vori-card" style={{ marginBottom: 32, background: '#d3defa', padding: 20, color: '#222' }}>
-            <Text h2 className="vori-h2" style={{ color: '#4D553A', margin: 0 }}>Growth Opportunities at <span style={{ color: '#4f46e5' }}>Vori</span></Text>
+            <Text h2 className="vori-h2" style={{ color: '#222', margin: 0 }}>Growth Opportunities at <span style={{ color: '#4f46e5' }}>Vori</span></Text>
             <Divider my={0.5} />
             <ul className="vori-list" style={{ margin: 0, paddingLeft: 24 }}>
               <li>Deepening expertise in <b>retail operations</b> and the unique needs of independent grocers</li>
@@ -134,7 +134,7 @@ export default function Vori() {
         </Page> :
         <Page width="100%" style={{ maxWidth: 800, margin: '0 auto', padding: '32px 0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 16 }}>
-            <Text h1 style={{ color: '#4D553A', marginBottom: 0 }}>
+            <Text h1 style={{ color: '#222', marginBottom: 0 }}>
               Hi <span style={{ color: '#4f46e5', display: 'inline-flex', alignItems: 'center' }}>
                 <span style={{ display: 'inline-block', height: 40, marginLeft: 8, verticalAlign: 'middle' }}>
                   <svg width="113" height="40" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">
