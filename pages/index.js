@@ -175,12 +175,14 @@ export default function Home() {
             maxWidth: '1100px',
             margin: '0 auto',
             padding: isMobile ? '32px 8px' : '48px 0',
+            overflow: 'visible',
           }}>
             <Text h2 align="center" style={{ color: '#4D553A', marginBottom: 32 }}>Projects (Outdated: 2019)</Text>
             <div style={{
               display: 'grid',
               gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
               gap: '32px',
+              overflow: 'visible',
             }}>
               {/* ISS On Earth Project Card */}
               <div style={{
@@ -262,11 +264,19 @@ export default function Home() {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '16px',
+                overflow: 'visible',
               }}>
                 <Text h3 style={{ margin: 0 }}>Target Practice (1st Place Award Winner)</Text>
                 <iframe
                   src="https://arthurmois.github.io/target-practice/"
-                  style={{ minWidth: '100%', minHeight: '180px', borderRadius: '12px', border: '1px solid #e0e7ef' }}
+                  style={{
+                    width: '100%',
+                    height: '350px',
+                    borderRadius: '12px',
+                    border: '1px solid #e0e7ef',
+                    display: 'block',
+                  }}
+                  scrolling="no"
                 ></iframe>
                 <Text>
                   FPS aim training game built in 24 hours for a graphics competition. Features a custom physics engine and 3D scene using <b>WebGL</b> and <b>Linear Algebra</b>.
