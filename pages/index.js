@@ -216,7 +216,7 @@ export default function Home() {
               }}>
                 <Text h3 style={{ margin: 0 }}>Facebook Marketplace Replica</Text>
                 <Display shadow>
-                  <Image height="120px" src="/fbreplica.png" style={{ borderRadius: '12px', objectFit: 'cover' }} />
+                  <Image height="120px" src="/fbreplica.png" style={{ borderRadius: '12px', objectFit: 'cover' }} alt="Facebook Marketplace Replica" />
                 </Display>
                 <Text>
                   A full stack web app modeled after Facebook's Marketplace. Features account creation, listing, search, and more. Built with <b>React</b>, <b>Node</b>, <b>Express</b>, and <b>PostgreSQL</b>.
