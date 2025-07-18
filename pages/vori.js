@@ -54,7 +54,7 @@ export default function Vori() {
             <div style={{ marginTop: 24 }}>
               <Text h4 style={{ color: '#586142', marginBottom: 12 }}>Building Self-Driving Semi Trucks</Text>
               <ul className="vori-list" style={{ margin: 0, paddingLeft: 24 }}>
-                <li>Worked on Aurora's <b>Services Engineering</b> team</li>
+                <li>Worked on Aurora&apos;s <b>Services Engineering</b> team</li>
                 <li>Provides support for all <b>internal applications</b> used by the company</li>
                 <li>Built tools for everyone from <b>dispatchers</b> to <b>AI/ML engineers</b></li>
               </ul>
