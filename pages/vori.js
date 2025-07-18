@@ -33,7 +33,7 @@ export default function Vori() {
             </span>
           </Text>
           <Text h4 style={{ color: '#586142', marginTop: 8, marginBottom: 32 }}>About Me</Text>
-          <Card shadow className="vori-card" style={{ marginBottom: 40, background: '#b7e4ce', padding: 20, color: '#222' }}>
+          <Card shadow className="vori-card" style={{ marginBottom: 40, background: '#d3defa', padding: 20, color: '#222' }}>
             <Text h3 className="vori-h3" style={{ margin: 0 }}>Short Summary</Text>
             <Divider my={0.5} />
             <ul className="vori-list" style={{ margin: 0, paddingLeft: 24 }}>
@@ -111,7 +111,7 @@ export default function Vori() {
               </Card>
             </div>
           </Card>
-          <Card shadow className="vori-card" style={{ marginBottom: 32, background: '#bfcfff', padding: 20, color: '#222' }}>
+          <Card shadow className="vori-card" style={{ marginBottom: 32, background: '#d3defa', padding: 20, color: '#222' }}>
             <Text h2 className="vori-h2" style={{ color: '#4D553A', margin: 0 }}>Strengths for <span style={{ color: '#4f46e5' }}>Vori</span></Text>
             <Divider my={0.5} />
             <ul className="vori-list" style={{ margin: 0, paddingLeft: 24 }}>
@@ -122,7 +122,7 @@ export default function Vori() {
               <li>Enjoy working on <b>mission-critical tools</b> that directly impact business operations and customer experience</li>
             </ul>
           </Card>
-          <Card shadow className="vori-card" style={{ marginBottom: 32, background: '#bfcfff', padding: 20, color: '#222' }}>
+          <Card shadow className="vori-card" style={{ marginBottom: 32, background: '#d3defa', padding: 20, color: '#222' }}>
             <Text h2 className="vori-h2" style={{ color: '#4D553A', margin: 0 }}>Growth Opportunities at <span style={{ color: '#4f46e5' }}>Vori</span></Text>
             <Divider my={0.5} />
             <ul className="vori-list" style={{ margin: 0, paddingLeft: 24 }}>
