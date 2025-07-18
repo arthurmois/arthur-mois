@@ -176,7 +176,7 @@ export default function Home() {
             margin: '0 auto',
             padding: isMobile ? '32px 8px' : '48px 0',
           }}>
-            <Text h2 align="center" style={{ color: '#4D553A', marginBottom: 32 }}>Projects</Text>
+            <Text h2 align="center" style={{ color: '#4D553A', marginBottom: 32 }}>Projects (Outdated: 2019)</Text>
             <div style={{
               display: 'grid',
               gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
