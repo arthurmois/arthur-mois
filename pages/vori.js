@@ -120,7 +120,11 @@ export default function Vori() {
                 </span>
               </span>
             </Text>
-            <Input type='secondary' placeholder="Passcode" value={passcode} onChange={e => setPasscode(e.target.value)} />
+            <Input type='secondary' placeholder="Passcode" value={passcode} onChange={e => setPasscode(e.target.value)} onKeyDown={(e) => {
+              if (e.key === "Enter" && passcode === PASSCODE) {
+                setUnlocked(true);
+              }
+            }} />
             <Button type="secondary" style={{ width: '12px' }} onClick={() => {
               if (passcode === PASSCODE) {
                 setUnlocked(true);
